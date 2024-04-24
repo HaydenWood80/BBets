@@ -85,22 +85,51 @@ print(c(lCI,uCI))
 <!--Explain and display your method of coming up with a 95% confidence interval of  professor Brownlows winnings (or losings)-->
 
 
+
 # What are the fair odds? Use manipulation of odds in the function to tune Brownlows earnings to zero. 
 
 
 <!--Decide on your methods:  In this section explain the approach you will take to attack the issue --- how will you decide on a likely estimate of professor Brownlow's earnings or losses after 637 bets. Also explain how you construct a 95% confidence interval about your estimate of his winnings !-->
 
+```{r}
+calculate_probability <- function(odds) {
+  class_size <- 35
+  prob_no_match <- prod((class_size - 1):(class_size - 1 - class_size + 1) / class_size)
+  return(1 - prob_no_match * odds)
+}
+```
 
+```{r}
+fair_odds <- optimize(function(x) abs(calculate_probability(x) - 0.5), interval = c(0.1, 10))$minimum
+```
 
+```{r}
+print(paste("Fair odds:", fair_odds))
+```
+
+the code we just used previously shows with our calculation shows the fair odds  are 9.99994535484514 
 
 # What size of class makes the 2:1 bet fair?  Use manipulation of number of Students to tune Brownlows earnings to zero.
 
 <!--Explain and display the results of your method of coming up with the estimate of professor Brownlows betting profits!-->
 
+```{r}
+calculate_expected_earnings <- function(class_size) {
+  odds <- 2  # Odds for the 2:1 bet
+  n_bets <- 637  # Number of bets Professor Brownlow made
+  return(mean(BrLw(class_size, odds, n_bets)))  # Calculate average earnings
+}
+```
 
+```{r}
+fair_class_size <- optimize(calculate_expected_earnings, interval = c(1, 100))$minimum
+```
 
+```{r}
+print(paste("Fair class size:", round(fair_class_size)))
+```
 
-
+these 3 codes give us the result that the fair class size to test this would be 5, A fair class size of 5 means that if Professor Brownlow were to make the 2:1 bet in a class of 5 students, his expected earnings over 637 bets would be approximately zero
 
 
 

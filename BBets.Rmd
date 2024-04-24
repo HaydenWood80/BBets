@@ -41,12 +41,46 @@ The function will be given a class_size by number of students, odds, and Number_
 ## the standard deviation and a 95% confidence interval for their earnings?
   
 ```{r}
-winnings=matrix('numeric')
-for(i in 1:500){
-winnings[i]=BrLw(35,2, 637)
+nSims=500
+saveResults= matrix(rep(0,nSims))
+for(i in 1:nSims){
+  saveResults[i] = BrLw(35,2,637)
 }
-   hist(winnings)
+hist(saveResults)
 ```
+```{r}
+print(paste('mean profit= ', round(mean(saveResults))))
+```
+```{r}
+sortedResults = sort(saveResults)
+lCI = ceiling(sortedResults[0.025*nSims])
+uCI = floor(sortedResults[0.975*nSims])
+print('95% confidence Intercal, average earning/losses')
+```
+```{r}
+print(c(lCI,uCI))
+```
+```{r}
+nSims=500
+saveResults= matrix(rep(0,nSims))
+for(i in 1:nSims){
+  saveResults[i] = BrLw (35,3,637)
+}
+hist(saveResults)
+```
+```{r}
+print(paste('mean profit= ', round(mean(saveResults))))
+```
+```{r}
+sortedResults = sort(saveResults)
+lCI = ceiling(sortedResults[0.025*nSims])
+uCI = floor(sortedResults[0.975*nSims])
+print('95% Confidence Intercal, average earnings/losses')
+```
+```{r}
+print(c(lCI,uCI))
+```
+  
   
 <!--Explain and display your method of coming up with a 95% confidence interval of  professor Brownlows winnings (or losings)-->
 

@@ -1,6 +1,6 @@
 ---
 title: "Brownlows Bets"
-author: ""Hayden Wood
+author: "Hayden Wood"
 output: 
   html_document:
     number_sections: true
@@ -39,6 +39,14 @@ The function will be given a class_size by number of students, odds, and Number_
 # In the class and payoff as described  If you highered 40 brownlow substitute teachers to do the same thing that Brownlow did then.
 ## what is their average earnings
 ## the standard deviation and a 95% confidence interval for their earnings?
+  
+```{r}
+winnings=matrix('numeric')
+for(i in 1:500){
+winnings[i]=BrLw(35,2, 637)
+}
+   hist(winnings)
+```
   
 <!--Explain and display your method of coming up with a 95% confidence interval of  professor Brownlows winnings (or losings)-->
 

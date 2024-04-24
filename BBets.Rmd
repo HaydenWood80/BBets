@@ -137,3 +137,6 @@ these 3 codes give us the result that the fair class size to test this would be 
 
 <!--Discussion and conclusion here.  If professor Brownlow is consistantly making or losing money how could he change his payout so that his profits center on zero?  Also discuss what size his class should be in order to have his current scheme balance at zero profit.!-->
 
+Our analysis reveals that a fair class size for Professor Brownlow's 2:1 bet on matching birthdays is 5 students, resulting in approximately zero expected earnings over a series of 637 bets. Additionally, our investigation into the fair odds for the bet yielded a value of 9.99994535484514, indicating that for every $1 wagered by the students, Professor Brownlow would offer approximately $9.99994535484514 if at least two people share the same birthday.
+
+These findings underscore the importance of class size in determining the fairness of such bets, with smaller class sizes increasing the likelihood of matching birthdays and hence favoring Professor Brownlow's earnings. Understanding these dynamics can inform future decisions regarding betting propositions within the classroom environment.
